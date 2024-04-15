@@ -1,5 +1,5 @@
 const fs = require("fs");
-const baseUrl = "https://fileuploader-o3nw.onrender.com/files/"
+const baseUrl = "https://file-uploader-mvei.onrender.com/files/"
 const fetch = require('node-fetch');
 
 // Shows list of files
