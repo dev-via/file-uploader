@@ -10,30 +10,12 @@ const storage = multer.diskStorage({
       cb(null, './public/uploads')
    },
    filename: (req, file, cb) => {
-      cb(null, file.fieldname + '_' + uploadDate + path.extname(file.originalname))
+      cb(null, file.originalname)
    }
 })
 
 // Uploading
 const upload = multer({ storage: storage })
-
-// Adding formated date to filename
-const date = new Date();
-const uploadDate = (date.getFullYear() +
-   '-' + addZero((date.getMonth()+1)) +
-   '-' + addZero(date.getDate()) +
-   '_' + addZero(date.getHours()) +
-   ':' + addZero(date.getMinutes()) +
-   ':' + addZero(date.getSeconds())
-);
-
-function addZero(num) {
-   if (num <= 9) {
-      return '0' + num;
-   } else {
-      return num;
-   }
-}
 
 // Routes
 router.get('/', (req, res) => res.render('home'))
